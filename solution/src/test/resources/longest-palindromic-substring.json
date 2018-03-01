@@ -1,0 +1,87 @@
+[
+	{
+		"description": "Test case 1",
+		"input": "",
+		"output": [""]
+	},
+	{
+		"description": "Test case 2",
+		"input": "a",
+		"output": ["a"]
+	},
+	{
+		"description": "Test case 3",
+		"input": "abc",
+		"output": ["a","b","c"]
+	},
+	{
+		"description": "Test case 4",
+		"input": "aba",
+		"output": ["aba"]
+	},
+	{
+		"description": "Test case 5",
+		"input": "abazxcvbnmasdfghjklqwertyuio",
+		"output": ["aba"]
+	},
+	{
+		"description": "Test case 6",
+		"input": "zxcvbnmasdfghjklqwertyuioaba",
+		"output": ["aba"]
+	},
+	{
+		"description": "Test case 7",
+		"input": "aazxcvbnmasdfghjklqwertyuio",
+		"output": ["aa"]
+	},
+	{
+		"description": "Test case 8",
+		"input": "zxcvbnmasdfghjklqwertyuioaa",
+		"output": ["aa"]
+	},
+	{
+		"description": "Test case 9",
+		"input": "bbbbbbbbbpaaaaaaaaaaqccccccccc",
+		"output": ["aaaaaaaaaa"]
+	},
+	{
+		"description": "Test case 10",
+		"input": "aaaaaaaaaaqccccccccc",
+		"output": ["aaaaaaaaaa"]
+	},
+	{
+		"description": "Test case 11",
+		"input": "aaaaaaaaaaaqccccccccc",
+		"output": ["aaaaaaaaaaa"]
+	},
+	{
+		"description": "Test case 12",
+		"input": "ccccccccczaaaaaaaaaa",
+		"output": ["aaaaaaaaaa"]
+	},
+	{
+		"description": "Test case 13",
+		"input": "cccccccccxaaaaaaaaaaa",
+		"output": ["aaaaaaaaaaa"]
+	},
+	{
+		"description": "Test case 14",
+		"input": "ccccccccccxabcdefedcba",
+		"output": ["abcdefedcba"]
+	},
+	{
+		"description": "Test case 15",
+		"input": "abcdefedcbacccccccccc",
+		"output": ["abcdefedcba"]
+	},
+	{
+		"description": "Test case 16",
+		"input": "ccccccccccxabcdeffedcba",
+		"output": ["abcdeffedcba"]
+	},
+	{
+		"description": "Test case 17",
+		"input": "abcdeffedcbacccccccccc",
+		"output": ["abcdeffedcba"]
+	}
+]

@@ -18,8 +18,8 @@ public class TestUtil {
     
     public static <T> Collection<Object[]> loadTestData(String resourcePath, Class<T> dataClass, Function<T, Object[]> mapFunction) {
         List<T> list;
-        try (InputStream stream = MedianOfTwoSortedArraysTest.class.getClassLoader()
-                .getResourceAsStream("median-of-two-sorted-arrays.json")) {
+        try (InputStream stream = dataClass.getClassLoader()
+                .getResourceAsStream(resourcePath)) {
             ObjectMapper mapper = new ObjectMapper();
             CollectionType listType = mapper.getTypeFactory().constructCollectionType(List.class, dataClass);
             list = mapper.readValue(stream, listType);
