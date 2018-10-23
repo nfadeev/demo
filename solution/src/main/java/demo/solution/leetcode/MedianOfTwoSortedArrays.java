@@ -33,8 +33,18 @@ public class MedianOfTwoSortedArrays {
     }
 
     private boolean isBalanced() {
-        balancingDirection = shouldIndex1MoveLeft() ? -1 : (shouldIndex1MoveRight() ? 1 : 0);
+        balancingDirection = getBalancingDirection();
         return balancingDirection == 0;
+    }
+
+    private int getBalancingDirection() {
+        if (shouldIndex1MoveLeft()) {
+            return -1;
+        }
+        if (shouldIndex1MoveRight()) {
+            return 1;
+        }
+        return 0;
     }
 
     private boolean shouldIndex1MoveLeft() {
