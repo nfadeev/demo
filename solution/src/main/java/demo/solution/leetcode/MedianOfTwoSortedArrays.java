@@ -14,7 +14,7 @@ public class MedianOfTwoSortedArrays {
     public MedianOfTwoSortedArrays(int[] arrayOne, int[] arrayTwo) {
         this.array1 = arrayOne;
         this.array2 = arrayTwo;
-        this.totalLength = arrayOne.length + arrayTwo.length;
+        this.totalLength = (long) arrayOne.length + arrayTwo.length;
     }
 
     public double findMedian() {
