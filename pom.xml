@@ -12,6 +12,8 @@
 		<java.source.level>1.8</java.source.level>
 		<maven.compiler.plugin.version>3.1</maven.compiler.plugin.version>
 		<junit.version>4.12</junit.version>
+		<maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
+		<jacoco-maven-plugin.version>0.8.2</jacoco-maven-plugin.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -41,6 +43,16 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>${maven.compiler.plugin.version}</version>
 				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-surefire-plugin</artifactId>
+					<version>${maven-surefire-plugin.version}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.jacoco</groupId>
+					<artifactId>jacoco-maven-plugin</artifactId>
+					<version>${jacoco-maven-plugin.version}</version>
+				</plugin>
 			</plugins>
 		</pluginManagement>
 		<plugins>
@@ -51,6 +63,41 @@
 					<source>${java.source.level}</source>
 					<target>${java.source.level}</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<runOrder>random</runOrder>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<configuration>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<id>agent-for-ut</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>agent-for-it</id>
+						<goals>
+							<goal>prepare-agent-integration</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>jacoco-site</id>
+						<phase>verify</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
