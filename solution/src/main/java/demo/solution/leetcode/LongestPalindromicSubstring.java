@@ -6,7 +6,8 @@ public class LongestPalindromicSubstring {
         if (s == null || s.length() <= 1) {
             return s;
         }
-        int start = 0, end = 0;
+        int start = 0;
+        int end = 0;
         int length = s.length();
         int index = length / 2;
         int limit = length - 1;
