@@ -31,4 +31,14 @@ public class Node<T> {
         }
         return reverted;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder("Node[").append(value);
+        Node n = this;
+        while ((n = n.next) != null) {
+            builder.append(',').append(n.value);
+        }
+        return builder.append(']').toString();
+    }
 }

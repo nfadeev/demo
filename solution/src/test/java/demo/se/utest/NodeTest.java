@@ -1,10 +1,7 @@
 package demo.se.utest;
 
+import org.assertj.core.api.Condition;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.Objects;
-import java.util.function.Predicate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -27,7 +24,7 @@ public class NodeTest {
     @Test
     public void revertIsWorkingWithTwoNodes() {
         Node<Integer> head = createNode(1, 2, 3, 4, 5, 6, 7);
-        assertThat(head.revert()).matches(getRevertedPredicate(head));
+        assertThat(head.revert()).is(revertedCopyOf(head));
     }
 
     private Node<Integer> createNode(int... values) {
@@ -46,34 +43,8 @@ public class NodeTest {
         return head;
     }
 
-    private Predicate<? super Node<Integer>> getRevertedPredicate(Node<Integer> src) {
-        return (reverted) -> {
-            ArrayList<Integer> srcValues = getValuesList(src);
-            ArrayList<Integer> revertedValues = getValuesList(reverted);
-
-            System.out.println(srcValues);
-            System.out.println(revertedValues);
-            if (srcValues.size() != revertedValues.size()) {
-                return false;
-            }
-            for (int i = 0, j = srcValues.size() - 1; i < srcValues.size(); i++, j--) {
-                if (!Objects.equals(srcValues.get(i), revertedValues.get(j))) {
-                    System.out.println(i + ", " + j);
-                    return false;
-                }
-            }
-            return true;
-        };
+    private Condition<? super Node<Integer>> revertedCopyOf(Node<Integer> src) {
+        return new Condition<>(new NodeRevertedCopyPredicate<>(src), "reverted copy of %s", src);
     }
-
-    private ArrayList<Integer> getValuesList(Node<Integer> src) {
-        ArrayList<Integer> srcValues = new ArrayList<>();
-        Node<Integer> pointer = src;
-        do {
-            srcValues.add(pointer.getValue());
-        } while ((pointer = pointer.getNext()) != null);
-        return srcValues;
-    }
-
 
 }
