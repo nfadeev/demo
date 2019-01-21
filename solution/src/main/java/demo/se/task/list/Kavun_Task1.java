@@ -2,11 +2,19 @@ package demo.se.task.list;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.Exchanger;
 
 public class Kavun_Task1 implements Task1_NumberAccumulator {
 
     // Init of ArrayList
-    private List<Integer> list1 = new ArrayList<>();
+    private List<Integer> list1;
+
+    public Kavun_Task1(List<Integer> list1) {
+        if (list1 == null) {
+            throw new IllegalArgumentException("Argument could not be NULL kurwa");
+        }
+        this.list1 = list1;
+    }
 
     // methods implementation
     public void add(int value) {
@@ -21,8 +29,8 @@ public class Kavun_Task1 implements Task1_NumberAccumulator {
     }
 
     public String get() {
-
         // 1st option
+        /*
         String result = "";
 
         for (int i = 0; i < list1.size(); i++) {
@@ -31,6 +39,7 @@ public class Kavun_Task1 implements Task1_NumberAccumulator {
                 result = result + ",";
             }
         }
+        */
 
         // 2nd option
         StringBuilder builder = new StringBuilder();
@@ -44,8 +53,4 @@ public class Kavun_Task1 implements Task1_NumberAccumulator {
 
         return builder.toString();
     }
-
-    ;
-
-
 }
