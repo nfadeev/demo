@@ -1,18 +1,16 @@
 package demo.solution.leetcode;
 
-import static org.junit.Assert.assertThat;
-
-import java.util.Collection;
-
+import demo.solution.leetcode.MedianOfTwoSortedArrays.Logger;
+import demo.test.util.TestUtil;
 import org.hamcrest.core.IsEqual;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
-import demo.solution.leetcode.MedianOfTwoSortedArrays.Logger;
-import demo.test.util.TestUtil;
-import lombok.Data;
+import java.util.Collection;
+
+import static org.junit.Assert.assertThat;
 
 @RunWith(Parameterized.class)
 public class MedianOfTwoSortedArraysTest {
@@ -79,11 +77,26 @@ public class MedianOfTwoSortedArraysTest {
         builder.append(']');
     }
 
-    @Data
     static class TestData {
         private String description;
         private int[] array1;
         private int[] array2;
         private double expected;
+
+        public String getDescription() {
+            return description;
+        }
+
+        public int[] getArray1() {
+            return array1;
+        }
+
+        public int[] getArray2() {
+            return array2;
+        }
+
+        public double getExpected() {
+            return expected;
+        }
     }
 }
