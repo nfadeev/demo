@@ -1,8 +1,8 @@
-package demo.se.task.list;
+package demo.se.task.list.kavun;
 
-import java.util.ArrayList;
+import demo.se.task.list.Task1_NumberAccumulator;
+
 import java.util.List;
-import java.util.concurrent.Exchanger;
 
 public class Kavun_Task1 implements Task1_NumberAccumulator {
 

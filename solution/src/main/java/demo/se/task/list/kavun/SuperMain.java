@@ -1,4 +1,4 @@
-package demo.se.task.list;
+package demo.se.task.list.kavun;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
