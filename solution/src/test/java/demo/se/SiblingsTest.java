@@ -2,7 +2,6 @@ package demo.se;
 
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 public class SiblingsTest {
@@ -43,10 +42,23 @@ public class SiblingsTest {
     }
 
     @Test
-    @Ignore
     public void twelveLimitedWith15() {
         int value = 12;
         int limit = 15;
         Assertions.assertThat(siblings.get(value, limit)).isEqualTo(12);
+    }
+
+    @Test
+    public void maxInt() {
+        int value = Integer.MAX_VALUE;
+        int limit = Integer.MAX_VALUE;
+        Assertions.assertThat(siblings.get(value, limit)).isEqualTo(Integer.MAX_VALUE);
+    }
+
+    @Test
+    public void billionLimitedWith15() {
+        int value = 1000000000;
+        int limit = 15;
+        Assertions.assertThat(siblings.get(value, limit)).isEqualTo(10);
     }
 }
