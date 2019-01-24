@@ -49,6 +49,13 @@ public class SiblingsTest {
     }
 
     @Test
+    public void tenLimitedWith5() {
+        int value = 10;
+        int limit = 5;
+        Assertions.assertThat(siblings.get(value, limit)).isEqualTo(1);
+    }
+
+    @Test
     public void maxInt() {
         int value = Integer.MAX_VALUE;
         int limit = Integer.MAX_VALUE;
@@ -60,5 +67,10 @@ public class SiblingsTest {
         int value = 1000000000;
         int limit = 15;
         Assertions.assertThat(siblings.get(value, limit)).isEqualTo(10);
+    }
+
+    @Test
+    public void test() {
+        System.out.println(siblings.get(1111000, 10000));
     }
 }
